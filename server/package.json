@@ -1,0 +1,21 @@
+{
+  "name": "fusionauth-example-react-with-sdk-server",
+  "version": "0.1.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "keywords": [],
+  "author": "Woodridge Software",
+  "license": "Apache",
+  "dependencies": {
+    "@types/node": "^18.11.9",
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "express-session": "^1.17.0",
+    "request": "^2.88.2",
+    "types": "^0.1.1",
+    "typescript": "^4.8.4"
+  }
+}
