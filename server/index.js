@@ -1,7 +1,7 @@
 const express = require('express');
 const session = require('express-session');
 const cors = require('cors');
-const config = require('../config.js');
+const config = require('./config.js');
 
 // configure Express app and install the JSON middleware for parsing JSON bodies
 const app = express();
