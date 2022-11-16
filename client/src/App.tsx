@@ -1,9 +1,9 @@
-import  {FusionAuthProvider} from 'fusionauth-react-sdk/src/providers/FusionAuthProvider'
+import  {FusionAuthProvider} from 'fusionauth-react-sdk'
 import React from 'react';
 import { LoginPage } from './pages/LoginPage';
 import { CONFIG } from './config'
 import { AccountPage } from './pages/AccountPage';
-import {HashRouter as Router, Route} from 'react-router-dom';
+import {BrowserRouter as Router, Route, Routes} from 'react-router-dom';
 
 function App() {
 
@@ -15,12 +15,10 @@ function App() {
     return (
         <FusionAuthProvider config={CONFIG}>
             <Router>
-                <Route path={RoutePath.LOGIN}>
-                    <LoginPage/>
-                </Route>
-                <Route path={RoutePath.ACCOUNT}>
-                    <AccountPage />
-                </Route>
+                <Routes>
+                    <Route path={RoutePath.LOGIN} element={<LoginPage />} />
+                    <Route path={RoutePath.ACCOUNT} element={<AccountPage />} />
+                </Routes>
             </Router>
         </FusionAuthProvider>
     );

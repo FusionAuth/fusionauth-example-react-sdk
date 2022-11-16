@@ -22,14 +22,37 @@
     margin: 0 109px 0 0;
     border-radius: 10px;
     background-color: #083b94;
+    float: left;
 }
 
 .ovalContainer {
     width: 139px;
     height: 139px;
-    margin: 40px 40px 40px 30px;
-    padding: 10px 5px 7px 12px;
+    padding: 10px;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    margin: 40px 40px 40px -185px;
     background-color: #fff;
+    border-radius: 100px;
+    float: left;
+    overflow: hidden;
+    div {
+        background-color: #a0a0a0;
+        border-radius: 100px;
+        height: 120px;
+        width: 120px;
+        padding: 10px;
+        -webkit-box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        box-sizing: border-box;
+        .userIcon {
+            width: 80px;
+            margin: auto;
+            object-fit: contain;
+            display: block;
+        }
+    }
 }
 
 .name {
@@ -37,12 +60,34 @@
     font-size: 24px;
     font-weight: 500;
     color: #083b94;
+    margin: 0;
 }
 
-.text {
-    margin: 0 249px 0 0;
+.logout {
+    width: 68px;
+    height: 29px;
+    border-radius: 3px;
+    margin: 0px auto 40px;
+    display: block;
+    border: solid 1px #083b94;
     font-family: SFPro;
-    font-size: 16px;
-    font-weight: 500;
-    color: #424242;
+    font-size: 12px;
+    text-align: center;
+    color: #083b94;
+}
+
+.textContainer {
+    padding-top: 40px;
+}
+
+table {
+    width: 600px;
+    padding: 10px 0;
+    td {
+        font-family: SFPro;
+        font-size: 16px;
+        font-weight: 500;
+        color: #424242;
+        padding-top: 20px;
+    }
 }
