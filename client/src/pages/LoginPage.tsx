@@ -1,9 +1,19 @@
-import React, { FC } from 'react';
+import React, { FC, useEffect } from 'react';
 import styles from '../styles/loginPage.module.scss';
 import logo from '../logo.svg';
-import {FusionAuthLoginButton} from 'fusionauth-react-sdk'
+import logoGray from '../logoGray.svg';
+import {FusionAuthLoginButton, FusionAuthRegisterButton, useFusionAuthContext} from 'fusionauth-react-sdk'
+import {useNavigate} from 'react-router-dom';
 
 export const LoginPage: FC = () => {
+    const {user} = useFusionAuthContext();
+    const navigate = useNavigate();
+
+    useEffect(() => {
+        if (Object.keys(user).length !== 0) { // we are logged in, redirect
+            navigate('/account');
+        }
+    }, [user, navigate])
 
     return (
         <>
@@ -13,14 +23,17 @@ export const LoginPage: FC = () => {
                     Welcome
                 </h1>
 
-                <button />
-                <button className={styles.button}>Login</button>
+                <FusionAuthLoginButton className={styles.button} />
                 <span className={styles.or}>
                     <div className={styles.line} />
                     OR
                     <div className={styles.line} />
                 </span>
-                <button className={styles.button}>Register Now</button>
+                <FusionAuthRegisterButton className={styles.button} />
+            </div>
+            <div className={styles.footerContainer}>
+                <p className={styles.poweredBy} >Powered by</p>
+                <img src={logoGray} alt="FusionAuth Logo" className={styles.fusionAuthLogo} />
             </div>
         </>
     );

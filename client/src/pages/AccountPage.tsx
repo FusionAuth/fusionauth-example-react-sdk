@@ -1,45 +1,57 @@
-import React, { FC, useState } from 'react';
+import React, { FC, useEffect } from 'react';
 import styles from '../styles/accountPage.module.scss';
 import logo from '../logo.svg';
-import user from '../user.svg';
+import userLogo from '../userLogo.svg';
+import logoGray from '../logoGray.svg';
 import {FusionAuthLogoutButton, useFusionAuthContext, RequireAuth} from 'fusionauth-react-sdk'
+import { useNavigate } from 'react-router-dom';
 
 export const AccountPage: FC = () => {
+    const navigate = useNavigate();
+    const {user} = useFusionAuthContext();
+    // const user = {icon: "", name: "Jim DeBlock", email: "user@gmail.com", phone: "2032311707"}
 
-    //const [userData, setUserData] = useState(useFusionAuthContext().user);
-    const userData = {icon: "", name: "Jim DeBlock", email: "user@gmail.com", phone: "2032311707"}
+    useEffect(() => {
+        if (Object.keys(user).length === 0) { // we are not logged in, redirect
+            //navigate('/');
+        }
+    }, [user, navigate])
 
     return (
         <div>
             <img src={logo} alt="ChangeBank Logo" className={styles.image} />
-            <button className={styles.logout} >Logout</button>
+            <FusionAuthLogoutButton className={styles.logout} />
 
             <div className={styles.container}>
                 <div className={styles.blueContainer} />
 
                 <div className={styles.ovalContainer}>
                     <div>
-                        <img src={user} alt="user icon" className={styles.userIcon} />
+                        <img src={userLogo} alt="user icon" className={styles.userIcon} />
                     </div>
                     
                 </div>
 
                 <div className={styles.textContainer}>
-                    <p className={styles.name} >{userData.name}</p>
+                    <p className={styles.name} >{user.name}</p>
                     
                     <table>
                         <tbody>
                             <tr>
                                 <td>Email</td>
-                                <td>{userData.email}</td>
+                                <td>{user.email}</td>
                             </tr>
                             <tr>
                                 <td>Phone Number</td>
-                                <td>{userData.phone}</td>
+                                <td>{user.phone}</td>
                             </tr>
                         </tbody>
                     </table>
                 </div>
+            </div>
+            <div className={styles.footerContainer}>
+                <p className={styles.poweredBy} >Powered by</p>
+                <img src={logoGray} alt="FusionAuth Logo" className={styles.fusionAuthLogo} />
             </div>
         </div>
     );
