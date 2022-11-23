@@ -12,5 +12,5 @@ module.exports = {
 	// ports
 	clientPort: 8080,
 	serverPort: 9000,
-	fusionAuthBaseUrl: '<BASE URL>'
+	fusionAuthPort: 9011
 };
