@@ -10,8 +10,10 @@ export const LoginPage: FC = () => {
     const navigate = useNavigate();
 
     useEffect(() => {
-        if (Object.keys(user).length !== 0) { // we are logged in, redirect
-            navigate('/account');
+        if (user) {
+            if (Object.keys(user).length !== 0) { // we are logged in, redirect
+                navigate('/account');
+            }
         }
     }, [user, navigate])
 

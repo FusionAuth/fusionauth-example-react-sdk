@@ -9,14 +9,17 @@ router.post('/', (req, res) => {
     // POST request to /token endpoint
     {
       method: 'POST',
-      uri: `http://localhost:${config.fusionAuthPort}/oauth2/token`,
+      uri: `${config.fusionAuthBaseUrl}/oauth2/token`,
       form: {
         'client_id': config.clientID,
         'client_secret': config.clientSecret,
-        'code': req.query.code,
-        'code_verifier': req.session.verifier,
+        'code': req.body.code,
+        'code_verifier': req.body.code_verifier,
         'grant_type': 'authorization_code',
         'redirect_uri': config.redirectURI
+      },
+      headers: {
+        'Content-Type': 'application/x-www-form-urlencoded'
       }
     },
 
@@ -29,11 +32,16 @@ router.post('/', (req, res) => {
         // submit request to get user information
         request(
             {
-                method: 'GET',
-                uri: `http://localhost:${config.fusionAuthPort}/oauth2/userinfo`,
-                headers: {
-                    'Authorization': 'Bearer ' + req.session.token
-                  }
+              method: 'GET',
+              uri: `${config.fusionAuthBaseUrl}/oauth2/userinfo`,
+              headers: {
+                  'Authorization': 'Bearer ' + JSON.parse(body).access_token
+                }
+            },
+            (error, response, body) => {
+              if (!error) {
+                res.send({user: JSON.parse(body)});
+              }
             }
         );
     }

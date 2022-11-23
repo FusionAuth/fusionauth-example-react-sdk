@@ -12,13 +12,14 @@ export const AccountPage: FC = () => {
     // const user = {icon: "", name: "Jim DeBlock", email: "user@gmail.com", phone: "2032311707"}
 
     useEffect(() => {
+        console.log(user)
         if (Object.keys(user).length === 0) { // we are not logged in, redirect
-            //navigate('/');
+            navigate('/');
         }
     }, [user, navigate])
 
     return (
-        <div>
+        <RequireAuth>
             <img src={logo} alt="ChangeBank Logo" className={styles.image} />
             <FusionAuthLogoutButton className={styles.logout} />
 
@@ -33,7 +34,7 @@ export const AccountPage: FC = () => {
                 </div>
 
                 <div className={styles.textContainer}>
-                    <p className={styles.name} >{user.name}</p>
+                    <p className={styles.name} >{user.given_name} {user.family_name}</p>
                     
                     <table>
                         <tbody>
@@ -43,7 +44,7 @@ export const AccountPage: FC = () => {
                             </tr>
                             <tr>
                                 <td>Phone Number</td>
-                                <td>{user.phone}</td>
+                                <td>{user.phone_number}</td>
                             </tr>
                         </tbody>
                     </table>
@@ -53,6 +54,6 @@ export const AccountPage: FC = () => {
                 <p className={styles.poweredBy} >Powered by</p>
                 <img src={logoGray} alt="FusionAuth Logo" className={styles.fusionAuthLogo} />
             </div>
-        </div>
+        </RequireAuth>
     );
 };
