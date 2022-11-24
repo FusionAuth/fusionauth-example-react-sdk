@@ -2,10 +2,12 @@ const express = require('express');
 const session = require('express-session');
 const cors = require('cors');
 const config = require('./config.js');
+const bodyParser = require('body-parser')
 
 // configure Express app and install the JSON middleware for parsing JSON bodies
 const app = express();
-app.use(express.json());
+
+app.use(bodyParser.json());
 
 // configure sessions
 app.use(session(
