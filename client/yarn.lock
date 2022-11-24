@@ -4559,10 +4559,17 @@ functions-have-names@^1.2.2:
   resolved "https://registry.yarnpkg.com/functions-have-names/-/functions-have-names-1.2.3.tgz#0404fe4ee2ba2f607f0e0ec3c80bae994133b834"
   integrity sha512-xckBUXyTIqT97tq2x2AMb+g163b5JFysYk0x4qxNFwbfQkmNZoiRHb6sPzI9/QV33WeuvVYBUIiD4NzNIyqaRQ==
 
+<<<<<<< HEAD
 fusionauth-react-sdk@^0.18.0:
   version "0.18.0"
   resolved "https://registry.yarnpkg.com/fusionauth-react-sdk/-/fusionauth-react-sdk-0.18.0.tgz#ed3a296c174e93bafbd50239b564cacd4d51a14d"
   integrity sha512-TVld6vk54LivVGZEwYcwrJDhLEmsreEINxEBijHE7B9S826VOfeongi/H15SoqLhjlKRp25LyGasogEoYfZspA==
+=======
+fusionauth-react-sdk@^0.11.0:
+  version "0.11.0"
+  resolved "https://registry.yarnpkg.com/fusionauth-react-sdk/-/fusionauth-react-sdk-0.11.0.tgz#55af08d14404cd4146295cc233ddcc32b3fa887c"
+  integrity sha512-/yTyHIMBIMrNTtKqF2txyTUxzGN1tQDxWWrG9rWFYveWJxiKUGVaxaLbFPJsGqz9mfevs0RC67wl0Z1i5SUeXA==
+>>>>>>> develop
   dependencies:
     classnames "^2.3.2"
     js-cookie "^3.0.1"
