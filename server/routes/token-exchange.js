@@ -25,9 +25,9 @@ router.post('/', (req, res) => {
 
     // callback
     (error, response, body) => {
-        // save token to session
-        req.session.token = JSON.parse(body).access_token;
-        req.session.token = JSON.parse(body).refresh_token;
+        // save tokens as cookies
+        res.cookie('access_token', JSON.parse(body).access_token)
+        res.cookie('refresh_token', JSON.parse(body).refresh_token)
 
         // submit request to get user information
         request(
