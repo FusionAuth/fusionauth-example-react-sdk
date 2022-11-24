@@ -6,7 +6,6 @@ const bodyParser = require('body-parser')
 
 // configure Express app and install the JSON middleware for parsing JSON bodies
 const app = express();
-// app.use(express.json());
 
 app.use(bodyParser.json());
 

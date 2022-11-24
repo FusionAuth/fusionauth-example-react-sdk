@@ -9,10 +9,8 @@ import { useNavigate } from 'react-router-dom';
 export const AccountPage: FC = () => {
     const navigate = useNavigate();
     const {user} = useFusionAuthContext();
-    // const user = {icon: "", name: "Jim DeBlock", email: "user@gmail.com", phone: "2032311707"}
 
     useEffect(() => {
-        console.log(user)
         if (Object.keys(user).length === 0) { // we are not logged in, redirect
             navigate('/');
         }
