@@ -3,14 +3,16 @@ module.exports = {
 	// FusionAuth info (copied from the FusionAuth admin panel)
 	clientID: '<CLIENT_ID>',
 	clientSecret: '<CLIENT_SECRET>',
-	redirectURI: '<REDIRECT_URI>',
 	applicationID: '<APPLICATION_ID>',
+	fusionAuthBaseUrl: '<BASE URL>',
 
 	// our FusionAuth api key
 	apiKey: '<API_KEY>',
 
+	// Redirect URI: Where the application with redirect after a login/logout
+	redirectURI: '<REDIRECT_URI>',
+
 	// ports
-	clientPort: 8080,
-	serverPort: 9000,
-	fusionAuthBaseUrl: '<BASE URL>'
+	clientPort: 3000,
+	serverPort: 9000
 };
