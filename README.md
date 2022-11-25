@@ -1,5 +1,5 @@
 # FusionAuth Example React App With SDK
-This is an example react app made with [FusionAuth's React SDK](https://github.com/FusionAuth/fusionauth-react-sdk)
+This is an example react app made with [FusionAuth's React SDK](https://github.com/FusionAuth/fusionauth-react-sdk).
 
 ## Prerequisites
 You will need to have the following things installed on your computer:
@@ -18,7 +18,7 @@ Inside of both the `client/src` and `server` folders there is an example config 
 ### Inside of `client/src/config.ts`:
 This is the config used by the FusionAuth React SDK. Most of this will come from your FusionAuth instance, but for more information you can look at the explanation provided in the [SDK's documentation](https://github.com/FusionAuth/fusionauth-react-sdk).
 ### Inside of `server/config.js`:
-This is the config used to talk to your 
+This is the config used by the Express application. Most of this information will be found in your FusionAuth instance.
 
 ## Running the Application
 This application has 2 parts, the client and the server. In order to run, run the following commands.
