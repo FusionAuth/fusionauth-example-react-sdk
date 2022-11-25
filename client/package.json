@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "repository": "git@github.com:FusionAuth/fusionauth-example-react-with-sdk.git",
-  "author": "Woodridge Software",
+  "author": "FusionAuth",
   "license": "Apache",
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.5",

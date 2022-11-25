@@ -7,7 +7,7 @@
     "start": "node index.js"
   },
   "keywords": [],
-  "author": "Woodridge Software",
+  "author": "FusionAuth",
   "license": "Apache",
   "dependencies": {
     "@types/node": "^18.11.9",

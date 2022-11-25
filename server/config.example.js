@@ -5,7 +5,7 @@ module.exports = {
 	clientSecret: '<CLIENT_SECRET>',
 	fusionAuthBaseUrl: '<BASE URL>',
 
-	// Redirect URI: Where the application with redirect after a login/logout
+	// Redirect URI: Where the application will redirect after a login/logout
 	redirectURI: '<REDIRECT_URI>',
 
 	// port
