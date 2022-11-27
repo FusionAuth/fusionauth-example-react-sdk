@@ -27,9 +27,10 @@ app.use(session(
     resave: false,
     saveUninitialized: false,
     cookie: {
-      secure: 'auto',
+      secure: true,
       httpOnly: true,
-      maxAge: 3600000
+      maxAge: 3600000,
+      sameSite: 'lax'
     }
   })
 );
