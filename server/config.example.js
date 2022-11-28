@@ -1,12 +1,11 @@
 module.exports = {
-
 	// FusionAuth info (copied from the FusionAuth admin panel)
-	clientID: '<CLIENT_ID>',
-	clientSecret: '<CLIENT_SECRET>',
-	fusionAuthBaseUrl: '<BASE URL>',
+	clientID: '',
+	clientSecret: '',
+	fusionAuthBaseUrl: '',
 
-	// Redirect URI: Where the application with redirect after a login/logout
-	redirectURI: '<REDIRECT_URI>',
+	// Where FusionAuth will redirect after a login/logout
+	redirectURI: 'http://localhost:3000',
 
 	// port
 	serverPort: 9000

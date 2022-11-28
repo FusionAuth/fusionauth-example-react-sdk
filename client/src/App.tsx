@@ -1,22 +1,17 @@
 import React from 'react';
-import { LoginPage } from './pages/LoginPage';
-import { AccountPage } from './pages/AccountPage';
-import {BrowserRouter as Router, Route, Routes} from 'react-router-dom';
+import { LoginPage } from 'pages/LoginPage';
+import { AccountPage } from 'pages/AccountPage';
+import { Route, Routes } from 'react-router-dom';
+import { AppLayout } from 'layouts/AppLayout';
 
 function App() {
-
-    const RoutePath = {
-        LOGIN : '/',
-        ACCOUNT : '/account'
-    };
-
     return (
-        <Router>
-            <Routes>
-                <Route path={RoutePath.LOGIN} element={<LoginPage />} />
-                <Route path={RoutePath.ACCOUNT} element={<AccountPage />} />
-            </Routes>
-        </Router>
+        <Routes>
+            <Route path="/" element={<AppLayout />}>
+                <Route path="/" element={<LoginPage />} />
+                <Route path="/account" element={<AccountPage />} />
+            </Route>
+        </Routes>
     );
 }
 

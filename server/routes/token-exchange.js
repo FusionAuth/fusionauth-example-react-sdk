@@ -26,26 +26,38 @@ router.post('/', (req, res) => {
     // callback
     (error, response, body) => {
         // save tokens as cookies
-        res.cookie('access_token', JSON.parse(body).access_token)
-        res.cookie('refresh_token', JSON.parse(body).refresh_token)
+        const { access_token, refresh_token } = JSON.parse(body);
+        if (access_token && refresh_token) {
+            setSecureCookie(res, 'access_token', access_token);
+            setSecureCookie(res, 'refresh_token', refresh_token);
 
-        // submit request to get user information
-        request(
-            {
-              method: 'GET',
-              uri: `${config.fusionAuthBaseUrl}/oauth2/userinfo`,
-              headers: {
-                  'Authorization': 'Bearer ' + JSON.parse(body).access_token
+            // submit request to get user information
+            request(
+                {
+                    method: 'GET',
+                    uri: `${config.fusionAuthBaseUrl}/oauth2/userinfo`,
+                    headers: {
+                        'Authorization': 'Bearer ' + access_token
+                    }
+                },
+                (error, response, body) => {
+                    if (!error) {
+                        res.send({user: JSON.parse(body)});
+                    }
                 }
-            },
-            (error, response, body) => {
-              if (!error) {
-                res.send({user: JSON.parse(body)});
-              }
-            }
-        );
+            );
+        }
+
     }
   );
 });
+
+const setSecureCookie = (res, name, value) => {
+    res.cookie(name, value, {
+        httpOnly: true,
+        secure: true,
+        sameSite: 'lax'
+    });
+}
 
 module.exports = router;

@@ -1,24 +1,31 @@
 import React, { FC, useEffect } from 'react';
-import styles from '../styles/accountPage.module.scss';
-import logo from '../logo.svg';
-import userLogo from '../userLogo.svg';
-import logoGray from '../logoGray.svg';
-import {FusionAuthLogoutButton, useFusionAuthContext, RequireAuth} from 'fusionauth-react-sdk'
+import styles from 'styles/AccountPage.module.scss';
+import userIcon from 'assets/user_icon.svg';
+import { FusionAuthLogoutButton, useFusionAuth, RequireAuth } from 'fusionauth-react-sdk';
 import { useNavigate } from 'react-router-dom';
 
 export const AccountPage: FC = () => {
     const navigate = useNavigate();
-    const {user} = useFusionAuthContext();
+
+    // Pull user/authentication/loading state from FusionAuth context
+    const { user, isAuthenticated, isLoading } = useFusionAuth();
 
     useEffect(() => {
-        if (Object.keys(user).length === 0) { // we are not logged in, redirect
+        // We are not logged in, redirect
+        if (!isAuthenticated) {
             navigate('/');
         }
-    }, [user, navigate])
+    }, [isAuthenticated, navigate])
+
+    if (!isAuthenticated || isLoading) {
+        return null;
+    }
 
     return (
         <RequireAuth>
-            <img src={logo} alt="ChangeBank Logo" className={styles.image} />
+
+            {/* The out-of-the-box Logout button. You may customize how logout is performed by */}
+            {/* utilizing the `logout` method supplied by the FusionAuthContext */}
             <FusionAuthLogoutButton className={styles.logout} />
 
             <div className={styles.container}>
@@ -26,14 +33,14 @@ export const AccountPage: FC = () => {
 
                 <div className={styles.ovalContainer}>
                     <div>
-                        <img src={userLogo} alt="user icon" className={styles.userIcon} />
+                        <img src={userIcon} alt="User icon" className={styles.userIcon} />
                     </div>
-                    
+
                 </div>
 
                 <div className={styles.textContainer}>
                     <p className={styles.name} >{user.given_name} {user.family_name}</p>
-                    
+
                     <table>
                         <tbody>
                             <tr>
@@ -48,10 +55,7 @@ export const AccountPage: FC = () => {
                     </table>
                 </div>
             </div>
-            <div className={styles.footerContainer}>
-                <p className={styles.poweredBy} >Powered by</p>
-                <img src={logoGray} alt="FusionAuth Logo" className={styles.fusionAuthLogo} />
-            </div>
+
         </RequireAuth>
     );
 };

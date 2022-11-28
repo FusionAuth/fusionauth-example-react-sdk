@@ -1,42 +1,47 @@
-import React, { FC, useEffect } from 'react';
-import styles from '../styles/loginPage.module.scss';
-import logo from '../logo.svg';
-import logoGray from '../logoGray.svg';
-import {FusionAuthLoginButton, FusionAuthRegisterButton, useFusionAuthContext} from 'fusionauth-react-sdk'
-import {useNavigate} from 'react-router-dom';
+import React, {FC, useEffect} from 'react';
+import styles from 'styles/LoginPage.module.scss';
+import {
+    FusionAuthLoginButton,
+    FusionAuthRegisterButton,
+    useFusionAuth,
+} from 'fusionauth-react-sdk';
+import { useNavigate } from 'react-router-dom';
 
 export const LoginPage: FC = () => {
-    const {user} = useFusionAuthContext();
     const navigate = useNavigate();
 
+    // Pull loading/authentication state out of FusionAuth context
+    const { isAuthenticated, isLoading } = useFusionAuth();
+
     useEffect(() => {
-        if (user) {
-            if (Object.keys(user).length !== 0) { // we are logged in, redirect
-                navigate('/account');
-            }
+        if (isAuthenticated) {
+            navigate('/account');
         }
-    }, [user, navigate])
+    }, [isAuthenticated, navigate])
+
+    if (isAuthenticated || isLoading) {
+        return null;
+    }
 
     return (
-        <>
-            <img src={logo} alt="ChangeBank Logo" className={styles.image} />
-            <div className={styles.container}>
-                <h1 className={styles.welcome} >
-                    Welcome
-                </h1>
+        <div className={styles.container}>
+            <h1 className={styles.welcome}>
+                Welcome
+            </h1>
 
-                <FusionAuthLoginButton className={styles.button} />
-                <span className={styles.or}>
-                    <div className={styles.line} />
-                    OR
-                    <div className={styles.line} />
-                </span>
-                <FusionAuthRegisterButton className={styles.button} />
-            </div>
-            <div className={styles.footerContainer}>
-                <p className={styles.poweredBy} >Powered by</p>
-                <img src={logoGray} alt="FusionAuth Logo" className={styles.fusionAuthLogo} />
-            </div>
-        </>
+            {/* The out-of-the-box Login button. You may customize how logout is performed by */}
+            {/* utilizing the `login` method supplied by the FusionAuthContext */}
+            <FusionAuthLoginButton className={styles.button} />
+
+            <span className={styles.or}>
+                <div className={styles.line} />
+                OR
+                <div className={styles.line} />
+            </span>
+
+            {/* The out-of-the-box Register button. You may customize how logout is performed by */}
+            {/* utilizing the `register` method supplied by the FusionAuthContext */}
+            <FusionAuthRegisterButton className={styles.button} />
+        </div>
     );
 };
