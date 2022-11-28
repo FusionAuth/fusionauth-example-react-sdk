@@ -36,8 +36,8 @@ From the `client` directory:
 Three files in particular demonstrate the usage of the SDK. Check out the following:
 
 - `client/FusionAuthProviderWithRedirectHandling.tsx` - custom redirect handling to integrate with React Router
-- `client/pages/LoginPage` - a simple login page that utilizes `useFusionAuthContext` as well as the out-of-the-box login/register buttons
-- `client/pages/AccountPage` - a simple account page that utilizes `useFusionAuthContext` to display information about the authenticated user
+- `client/pages/LoginPage` - a simple login page that utilizes `useFusionAuth` as well as the out-of-the-box login/register buttons
+- `client/pages/AccountPage` - a simple account page that utilizes `useFusionAuth` to display information about the authenticated user
 
 ### Server Endpoint Requirements
 

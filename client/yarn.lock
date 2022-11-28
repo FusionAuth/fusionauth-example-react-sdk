@@ -4571,10 +4571,10 @@ functions-have-names@^1.2.2:
   resolved "https://registry.npmjs.org/functions-have-names/-/functions-have-names-1.2.3.tgz#0404fe4ee2ba2f607f0e0ec3c80bae994133b834"
   integrity sha512-xckBUXyTIqT97tq2x2AMb+g163b5JFysYk0x4qxNFwbfQkmNZoiRHb6sPzI9/QV33WeuvVYBUIiD4NzNIyqaRQ==
 
-fusionauth-react-sdk@^0.20.0:
-  version "0.20.0"
-  resolved "https://registry.npmjs.org/fusionauth-react-sdk/-/fusionauth-react-sdk-0.20.0.tgz#538dbd6d3b70635364545746d37da9129dea87fc"
-  integrity sha512-5QQmdFpqCt57+XsidLODwaa6zIu+cVub5kFHoZMTXyGrRe5mny/A/Dc2BZKWKMkroYY4KGxP/Wyci85ITMazwg==
+fusionauth-react-sdk@^0.21.0:
+  version "0.21.0"
+  resolved "https://registry.npmjs.org/fusionauth-react-sdk/-/fusionauth-react-sdk-0.21.0.tgz#6f8b41ff9a7b180d9de684a7c20fc0b625cc2672"
+  integrity sha512-j+HZj7E2nE4PlAZSqwb+hccGKP1by0n2l8MMStdcDSCugSxlGBQtx8SPPl+vdIuf+51AP3awFh6yLhrgJO0ugA==
   dependencies:
     classnames "^2.3.2"
     js-cookie "^3.0.1"

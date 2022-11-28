@@ -1,12 +1,14 @@
 import React, { FC, useEffect } from 'react';
 import styles from 'styles/AccountPage.module.scss';
 import userIcon from 'assets/user_icon.svg';
-import { FusionAuthLogoutButton, useFusionAuthContext, RequireAuth } from 'fusionauth-react-sdk';
+import { FusionAuthLogoutButton, useFusionAuth, RequireAuth } from 'fusionauth-react-sdk';
 import { useNavigate } from 'react-router-dom';
 
 export const AccountPage: FC = () => {
     const navigate = useNavigate();
-    const { user, isAuthenticated, isLoading } = useFusionAuthContext();
+
+    // Pull user/authentication/loading state from FusionAuth context
+    const { user, isAuthenticated, isLoading } = useFusionAuth();
 
     useEffect(() => {
         // We are not logged in, redirect

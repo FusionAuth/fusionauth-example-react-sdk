@@ -3,13 +3,15 @@ import styles from 'styles/LoginPage.module.scss';
 import {
     FusionAuthLoginButton,
     FusionAuthRegisterButton,
-    useFusionAuthContext,
+    useFusionAuth,
 } from 'fusionauth-react-sdk';
 import { useNavigate } from 'react-router-dom';
 
 export const LoginPage: FC = () => {
-    const { isAuthenticated, isLoading } = useFusionAuthContext();
     const navigate = useNavigate();
+
+    // Pull loading/authentication state out of FusionAuth context
+    const { isAuthenticated, isLoading } = useFusionAuth();
 
     useEffect(() => {
         if (isAuthenticated) {
