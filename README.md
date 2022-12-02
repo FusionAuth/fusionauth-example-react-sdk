@@ -20,20 +20,26 @@ The React client shows example usage of the SDK and integrates with [React Route
 
 ### FusionAuth Setup
 
-Create an application:
+Log into the application UI.
+
+#### Application
+
+Create an Application
+
+On the OAuth tab:
 
 1. Make sure the authorization code grant is enabled
 1. Add the following to the authorized redirect URLs for your application: `http://localhost:3000` and `http://localhost`
 1. Add the following to the authorized request origins URLs for your application: `http://localhost:9000` and `http://localhost`
 1. Add the following to the logout URL: `http://localhost:3000`
-1. Configure the application to have Registration required
 1. Record the client Id and secret, you'll use that below
 
-Register a user:
+On the registration tab:
+1. Make sure self service registration is enabled.
 
-1. Manage a user
-1. Click 'add registration'
-1. Add a user registration for the application you just created.
+#### Users
+
+Create a user if needed.
 
 ### Express Server Setup
 From the `server` directory:
