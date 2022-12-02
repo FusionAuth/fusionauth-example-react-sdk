@@ -16,7 +16,24 @@ The React client shows example usage of the SDK and integrates with [React Route
 ### Prerequisites
 - [Yarn](https://classic.yarnpkg.com/lang/en/): This will be needed for pulling down the various dependencies.
 - [NodeJS](https://nodejs.org/en/): This will be used in order to run the node server.
+- [FusionAuth](https://fusionauth.io): This is the auth server. Make sure [it is installed](https://fusionauth.io/docs/v1/tech/installation-guide/).
 
+### FusionAuth Setup
+
+Create an application:
+
+1. Make sure the authorization code grant is enabled
+1. Add the following to the authorized redirect URLs for your application: `http://localhost:3000` and `http://localhost`
+1. Add the following to the authorized request origins URLs for your application: `http://localhost:9000` and `http://localhost`
+1. Add the following to the logout URL: `http://localhost:3000`
+1. Configure the application to have Registration required
+1. Record the client Id and secret, you'll use that below
+
+Register a user:
+
+1. Manage a user
+1. Click 'add registration'
+1. Add a user registration for the application you just created.
 
 ### Express Server Setup
 From the `server` directory:
