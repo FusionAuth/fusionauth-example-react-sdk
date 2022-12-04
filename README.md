@@ -29,10 +29,10 @@ Create an Application
 On the OAuth tab:
 
 1. Make sure the authorization code grant is enabled
-1. Add the following to the authorized redirect URLs for your application: `http://localhost:3000` and `http://localhost`
-1. Add the following to the authorized request origins URLs for your application: `http://localhost:9000` and `http://localhost`
-1. Add the following to the logout URL: `http://localhost:3000`
-1. Record the client Id and secret, you'll use that below
+2. Add the following to the authorized redirect URLs for your application: `http://localhost:3000` and `http://localhost`
+3. Add the following to the authorized request origins URLs for your application: `http://localhost:9000` and `http://localhost`
+4. Add the following to the logout URL: `http://localhost:3000`
+5. Record the client Id and secret, you'll use that below
 
 On the registration tab:
 1. Make sure self service registration is enabled.
@@ -58,9 +58,9 @@ From the `client` directory:
 
 Three files in particular demonstrate the usage of the SDK. Check out the following:
 
-- `client/FusionAuthProviderWithRedirectHandling.tsx` - custom redirect handling to integrate with React Router
-- `client/pages/LoginPage` - a simple login page that utilizes `useFusionAuth` as well as the out-of-the-box login/register buttons
-- `client/pages/AccountPage` - a simple account page that utilizes `useFusionAuth` to display information about the authenticated user
+- `client/src/FusionAuthProviderWithRedirectHandling.tsx` - custom redirect handling to integrate with React Router
+- `client/src/pages/LoginPage` - a simple login page that utilizes `useFusionAuth` as well as the out-of-the-box login/register buttons
+- `client/src/pages/AccountPage` - a simple account page that utilizes `useFusionAuth` to display information about the authenticated user
 
 ### Server Endpoint Requirements
 
@@ -74,3 +74,5 @@ At a high level:
 
 - `token-exchange.js` calls out to the [FusionAuth OAuth Token](https://fusionauth.io/docs/v1/tech/oauth/endpoints#token) endpoint to get an access token and refresh token, which are both stored in secure cookies
 - `jwt-refresh.js` calls out to the [FusionAuth JWT Refresh](https://fusionauth.io/docs/v1/tech/apis/jwt#refresh-a-jwt) endpoint to exchange the refresh token for a new access token
+
+See the [SDK Server Code Requirements](https://github.com/FusionAuth/fusionauth-example-react-sdk#server-code-requirements) for more detail.
