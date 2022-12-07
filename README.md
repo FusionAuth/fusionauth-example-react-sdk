@@ -1,4 +1,5 @@
-# FusionAuth React SDK Example App
+# Example: Using React and the FusionAuth React SDK
+
 This repository contains example usage of the [FusionAuth React SDK](https://github.com/FusionAuth/fusionauth-react-sdk). It provides an example React client that uses the SDK, and an example Express server that is used to complete the OAuth token exchange.
 
 
@@ -17,29 +18,57 @@ The React client shows example usage of the SDK and integrates with [React Route
 - [Yarn](https://classic.yarnpkg.com/lang/en/): This will be needed for pulling down the various dependencies.
 - [NodeJS](https://nodejs.org/en/): This will be used in order to run the node server.
 - [FusionAuth](https://fusionauth.io): This is the auth server. Make sure [it is installed](https://fusionauth.io/docs/v1/tech/installation-guide/).
+- (Optional) [Docker](https://www.docker.com): For standing up FusionAuth from within a Docker container. You can [install it other ways](https://fusionauth.io/docs/v1/tech/installation-guide/), but the quickest way to go is Docker.
 
 ### FusionAuth Setup
 
-Log into the application UI.
+You can do this one of two ways, manually or Docker.
 
-#### Application
+#### Docker 
+If you run FusionAuth from a Docker container, in the root of this project directory (next to this README) are two files [a Docker compose file](./docker-compose.yml) and an [environment variables configuration file](./.env). Assuming you have Docker installed on your machine, a `docker-compose up` will bring FusionAuth up on your machine.
 
-Create an Application
+The FusionAuth configuration files also make use of a unique feature of FusionAuth, called Kickstart: when FusionAuth comes up for the first time, it will look at the [Kickstart file](./kickstart/kickstart.json) and mimic API calls to configure FusionAuth for use. It will perform all the necessary setup to make this demo work correctly, but if you are curious as to what the setup would look like by hand, the "FusionAuth configuration (by hand)" section of this README describes it in detail.
+
+For now, get FusionAuth in Docker up and running (via `docker-compose up`) if it is not already running; to see, [click here](http://localhost:9011/) to verify it is up and running.
+
+> **NOTE**: If you ever want to reset the FusionAuth system, delete the volumes created by docker-compose by executing `docker-compose down -v`. FusionAuth will only apply the Kickstart settings when it is first run (e.g., it has no data configured for it yet).
+
+If you are using Docker:
+
+* Your client Id is: `e9fdb985-9173-4e01-9d73-ac2d60d1dc8e`
+* Your client secret is: `super-secret-secret-that-should-be-regenerated-for-production`
+* Your example username is `richard@example.com` and your password is `password`.
+* Your admin username is `admin@example.com` and your password is `password`.
+
+#### Manual Configuration
+
+Log into the [FusionAuth admin UI](http://localhost:9011).
+
+Go to the Applications section.
+
+Create an Application using the green button.
 
 On the OAuth tab:
 
-1. Make sure the authorization code grant is enabled
-2. Add the following to the authorized redirect URLs for your application: `http://localhost:3000` and `http://localhost`
-3. Add the following to the authorized request origins URLs for your application: `http://localhost:9000` and `http://localhost`
-4. Add the following to the logout URL: `http://localhost:3000`
-5. Record the client Id and secret, you'll use that below
+1. Give it a name
+2. Make sure the authorization code grant is enabled
+3. Add the following to the authorized redirect URLs for your application: `http://localhost:3000` and `http://localhost`
+4. Add the following to the authorized request origins URLs for your application: `http://localhost:9000` and `http://localhost`
+5. Add the following to the logout URL: `http://localhost:3000`
+6. Click save.
+7. Edit the application again. 
+8. Record the client Id and secret, you'll use that below.
 
 On the registration tab:
 1. Make sure self service registration is enabled.
 
-#### Users
+Save the application again.
+
+Go to the Users section.
 
 Create a user if needed.
+
+FusionAuth is all set up.
 
 ### Express Server Setup
 From the `server` directory:

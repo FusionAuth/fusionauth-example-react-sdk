@@ -24,3 +24,5 @@ yarn-error.log*
 
 config.js
 config.ts
+
+*.swp
