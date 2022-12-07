@@ -75,4 +75,4 @@ At a high level:
 - `token-exchange.js` calls out to the [FusionAuth OAuth Token](https://fusionauth.io/docs/v1/tech/oauth/endpoints#token) endpoint to get an access token and refresh token, which are both stored in secure cookies
 - `jwt-refresh.js` calls out to the [FusionAuth JWT Refresh](https://fusionauth.io/docs/v1/tech/apis/jwt#refresh-a-jwt) endpoint to exchange the refresh token for a new access token
 
-See the [SDK Server Code Requirements](https://github.com/FusionAuth/fusionauth-example-react-sdk#server-code-requirements) for more detail.
+See the [SDK Server Code Requirements](https://github.com/FusionAuth/fusionauth-react-sdk#server-code-requirements) for more detail.
