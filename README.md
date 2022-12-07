@@ -37,10 +37,10 @@ If you are using Docker:
 
 * Your client Id is: `e9fdb985-9173-4e01-9d73-ac2d60d1dc8e`
 * Your client secret is: `super-secret-secret-that-should-be-regenerated-for-production`
+* Your example username is `richard@example.com` and your password is `password`.
+* Your admin username is `admin@example.com` and your password is `password`.
 
 #### Manual Configuration
-
-[Install FusionAuth](https://fusionauth.io/docs/v1/tech/installation-guide/).
 
 Log into the [FusionAuth admin UI](http://localhost:9011).
 
