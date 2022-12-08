@@ -40,9 +40,11 @@ If you are using Docker:
 * Your example username is `richard@example.com` and your password is `password`.
 * Your admin username is `admin@example.com` and your password is `password`.
 
+You can log into the [FusionAuth admin UI](http://localhost:9011/admin) and look around if you want, but with Docker/Kickstart you don't need to.
+
 #### Manual Configuration
 
-Log into the [FusionAuth admin UI](http://localhost:9011).
+Log into the [FusionAuth admin UI](http://localhost:9011/admin).
 
 Go to the Applications section.
 
