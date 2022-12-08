@@ -3,6 +3,7 @@
         "applicationId": "E9FDB985-9173-4E01-9D73-AC2D60D1DC8E",
         "apiKey": "this_really_should_be_a_long_random_alphanumeric_value_but_this_still_works",
         "asymmetricKeyId": "#{UUID()}",
+        "newThemeId": "#{UUID()}",
         "defaultTenantId": "d7d09513-a3f5-401c-9685-34ab6c552453",
         "adminEmail": "admin@example.com",
         "adminPassword": "password",
@@ -85,6 +86,34 @@
                 "registration": {
                     "applicationId": "#{applicationId}"
                 }
+            }
+        },
+        {
+            "method": "POST",
+            "url": "/api/theme/#{newThemeId}",
+            "body": {
+                "sourceThemeId": "75a068fd-e94b-451a-9aeb-3ddb9a3b5987",
+                "theme": {
+                    "name": "React theme"
+                } 
+            }
+        },
+        {
+            "method": "PATCH",
+            "url": "/api/theme/#{newThemeId}",
+            "body": {
+                "theme": {
+                    "stylesheet": "@{css/styles.css}"
+                } 
+            }
+        },
+        {
+            "method": "PATCH",
+            "url": "/api/tenant/#{defaultTenantId}",
+            "body": {
+                "tenant": {
+                    "themeId": "#{newThemeId}"
+                } 
             }
         }
     ]
