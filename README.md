@@ -61,14 +61,25 @@ On the OAuth tab:
 7. Edit the application again. 
 8. Record the client Id and secret, you'll use that below.
 
-On the registration tab:
-1. Make sure self service registration is enabled.
+On the registration tab, ensure self service registration is enabled.
 
 Save the application again.
 
 Go to the Users section.
 
 Create a user if needed.
+
+Go to the Themes section.
+
+1. Copy the default theme
+2. Copy the contents of the file at `kickstart/css/styles.css` into the styles field.
+3. Save the theme.
+
+Go to the Tenants section.
+
+1. Edit the default tenant
+2. On the General tab, update the Theme to your new theme.
+3. Save the tenant.
 
 FusionAuth is all set up.
 
