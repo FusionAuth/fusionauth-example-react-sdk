@@ -12,6 +12,8 @@ This example repo consists of two parts:
 
 The React client shows example usage of the SDK and integrates with [React Router v6](https://reactrouter.com/en/main).
 
+![Screenshot of the example application login screen](images/react-sdk-example-screenshot.png)
+
 ## Setup
 
 ### Prerequisites
