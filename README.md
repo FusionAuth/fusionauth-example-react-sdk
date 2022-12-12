@@ -10,7 +10,7 @@ This example repo consists of two parts:
 - `client` contains the React client application code which utilizes the FusionAuth React SDK
 - `server` contains an Express server app which is used to securely perform the token exchange
 
-The React client shows example usage of the SDK and integrates with [React Router v6](https://reactrouter.com/en/main). It consists of a simple Login page which utilizes the 
+The React client shows example usage of the SDK and integrates with [React Router v6](https://reactrouter.com/en/main).
 
 ## Setup
 
