@@ -24,9 +24,10 @@ The React client shows example usage of the SDK and integrates with [React Route
 
 ### FusionAuth Setup
 
-You can do this one of two ways, manually or Docker.
+You can do this one of two ways, [manually by logging into the FusionAuth administrative user interface](#manual-configuration) or [using Docker and Kickstart](#docker).
 
 #### Docker 
+
 If you run FusionAuth from a Docker container, in the root of this project directory (next to this README) are two files [a Docker compose file](./docker-compose.yml) and an [environment variables configuration file](./.env). Assuming you have Docker installed on your machine, a `docker-compose up` will bring FusionAuth up on your machine.
 
 The FusionAuth configuration files also make use of a unique feature of FusionAuth, called Kickstart: when FusionAuth comes up for the first time, it will look at the [Kickstart file](./kickstart/kickstart.json) and mimic API calls to configure FusionAuth for use. It will perform all the necessary setup to make this demo work correctly, but if you are curious as to what the setup would look like by hand, the "FusionAuth configuration (by hand)" section of this README describes it in detail.
@@ -43,6 +44,8 @@ If you are using Docker:
 * Your admin username is `admin@example.com` and your password is `password`.
 
 You can log into the [FusionAuth admin UI](http://localhost:9011/admin) and look around if you want, but with Docker/Kickstart you don't need to.
+
+Skip ahead to the [Express Server Setup](#express-server-setup) section.
 
 #### Manual Configuration
 
@@ -71,21 +74,23 @@ Go to the Users section.
 
 Create a user if needed.
 
-Go to the Themes section.
+Go to the Themes section, under Customization.
 
-1. Copy the default theme
-2. Copy the contents of the file at `kickstart/css/styles.css` into the styles field.
+1. Duplicate the FusionAuth theme.
+2. Provide a name, such as 'React theme'.
+2. Copy the contents of the file at `kickstart/css/styles.css` into the `styles` theme field.
 3. Save the theme.
 
 Go to the Tenants section.
 
 1. Edit the default tenant
-2. On the General tab, update the Theme to your new theme.
+2. On the General tab, update the tenant theme to be your new theme; 'React theme' if you used that name.
 3. Save the tenant.
 
-FusionAuth is all set up.
+FusionAuth is all set up. Proceed to the [Express Server Setup](#express-server-setup) section.
 
 ### Express Server Setup
+
 From the `server` directory:
 
 1. Make a copy of `config.example.js` called `config.js` and fill it out
