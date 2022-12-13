@@ -45,7 +45,7 @@ If you are using Docker:
 
 You can log into the [FusionAuth admin UI](http://localhost:9011/admin) and look around if you want, but with Docker/Kickstart you don't need to.
 
-Skip ahead to the [Express Server Setup](#express-server-setup) section.
+You're all done with FusionAuth setup. Skip ahead to the [Express Server Setup](#express-server-setup) section.
 
 #### Manual Configuration
 
@@ -102,6 +102,10 @@ From the `client` directory:
 1. Make a copy of `src/config.example.ts` at `src/config.ts` and fill it out
 2. Run `yarn install` to install dependencies
 3. Run `yarn start` to start your React app at [http://localhost:3000](http://localhost:3000)
+
+### Test It Out
+
+Visit the [React app](http://localhost:3000). You should be able to log in, log out and register a new user.
 
 ## SDK Examples
 
