@@ -19,14 +19,15 @@ The React client shows example usage of the SDK and integrates with [React Route
 ### Prerequisites
 - [Yarn](https://classic.yarnpkg.com/lang/en/): This will be needed for pulling down the various dependencies.
 - [NodeJS](https://nodejs.org/en/): This will be used in order to run the node server.
-- [FusionAuth](https://fusionauth.io): This is the auth server. Make sure [it is installed](https://fusionauth.io/docs/v1/tech/installation-guide/).
-- (Optional) [Docker](https://www.docker.com): For standing up FusionAuth from within a Docker container. You can [install it other ways](https://fusionauth.io/docs/v1/tech/installation-guide/), but the quickest way to go is Docker.
+- [FusionAuth](https://fusionauth.io): This is the auth server. Install in one of two ways:
+  - [Docker](https://www.docker.com): The quickest way to stand up FusionAuth.
+  - [Install FusionAuth Manually](https://fusionauth.io/docs/v1/tech/installation-guide/).
 
 ### FusionAuth Setup
 
-You can do this one of two ways, [manually by logging into the FusionAuth administrative user interface](#manual-configuration) or [using Docker and Kickstart](#docker).
+You can do this one of two ways, [using Docker and Kickstart](#docker) or [manually by logging into the FusionAuth administrative user interface](#manual-configuration).
 
-#### Docker 
+#### Docker
 
 If you run FusionAuth from a Docker container, in the root of this project directory (next to this README) are two files [a Docker compose file](./docker-compose.yml) and an [environment variables configuration file](./.env). Assuming you have Docker installed on your machine, a `docker-compose up` will bring FusionAuth up on your machine.
 
@@ -42,6 +43,7 @@ If you are using Docker:
 * Your client secret is: `super-secret-secret-that-should-be-regenerated-for-production`
 * Your example username is `richard@example.com` and your password is `password`.
 * Your admin username is `admin@example.com` and your password is `password`.
+* Your fusionAuthBaseUrl is 'http://localhost:9011/'
 
 You can log into the [FusionAuth admin UI](http://localhost:9011/admin) and look around if you want, but with Docker/Kickstart you don't need to.
 
@@ -53,9 +55,9 @@ Log into the [FusionAuth admin UI](http://localhost:9011/admin).
 
 Go to the Applications section.
 
-Create an Application using the green button.
+* Create an Application using the green button.
 
-On the OAuth tab:
+* On the OAuth tab:
 
 1. Give it a name
 2. Make sure the authorization code grant is enabled
@@ -66,20 +68,20 @@ On the OAuth tab:
 7. Edit the application again. 
 8. Record the client Id and secret, you'll use that below.
 
-On the registration tab, ensure self service registration is enabled.
+* On the registration tab, ensure self service registration is enabled.
 
-Save the application again.
+* Save the application again.
 
 Go to the Users section.
 
-Create a user if needed.
+* Create a user if needed.
 
 Go to the Themes section, under Customization.
 
 1. Duplicate the FusionAuth theme.
 2. Provide a name, such as 'React theme'.
-2. Copy the contents of the file at `kickstart/css/styles.css` into the `styles` theme field.
-3. Save the theme.
+3. Copy the contents of the file at `kickstart/css/styles.css` into the `styles` theme field.
+4. Save the theme.
 
 Go to the Tenants section.
 
@@ -112,8 +114,10 @@ Visit the [React app](http://localhost:3000). You should be able to log in, log 
 Three files in particular demonstrate the usage of the SDK. Check out the following:
 
 - `client/src/FusionAuthProviderWithRedirectHandling.tsx` - custom redirect handling to integrate with React Router
-- `client/src/pages/LoginPage` - a simple login page that utilizes `useFusionAuth` as well as the out-of-the-box login/register buttons
-- `client/src/pages/AccountPage` - a simple account page that utilizes `useFusionAuth` to display information about the authenticated user
+- `client/src/pages/LoginPage.tsx` - a simple login page that pulls loading/authentication state out of FusionAuth context via `useFusionAuth()` as well as the out-of-the-box Login and Register buttons
+- `client/src/pages/AccountPage.tsx` - a simple account page that 
+  - wraps page in `RequireAuth` component to protect information from unauthorized users.
+  - pulls user state from the FusionAuth context via `useFusionAuth()` to display information about the authenticated user
 
 ### Server Endpoint Requirements
 
