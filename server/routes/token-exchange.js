@@ -5,6 +5,7 @@ const config = require('../config.js');
 const router = express.Router();
 
 router.post('/', (req, res) => {
+  console.log("accepting request for token exchange");
   request(
     // POST request to /token endpoint
     {
@@ -25,6 +26,7 @@ router.post('/', (req, res) => {
 
     // callback
     (error, response, body) => {
+        console.log("saving tokens as cookies");
         // save tokens as cookies
         const { access_token, refresh_token } = JSON.parse(body);
         if (access_token && refresh_token) {
@@ -41,6 +43,7 @@ router.post('/', (req, res) => {
                     }
                 },
                 (error, response, body) => {
+                    console.log("getting userinfo");
                     if (!error) {
                         res.send({user: JSON.parse(body)});
                     }
