@@ -49,6 +49,9 @@ router.post('/', (req, res) => {
                     }
                 }
             );
+        } else {
+           console.log("Either refresh token or access token is missing.");
+           console.log(body);
         }
 
     }
