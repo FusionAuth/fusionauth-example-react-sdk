@@ -95,13 +95,13 @@ FusionAuth is all set up. Proceed to the [Express Server Setup](#express-server-
 
 From the `server` directory:
 
-1. Make a copy of `config.example.js` called `config.js` and fill it out
+1. Update `config.js` if you aren't using docker/kickstart
 2. Run `yarn install` to install dependencies
 3. Run `yarn start` to start the server at [http://localhost:9000](http://localhost:9000)
 
 ### React Client Setup
 From the `client` directory:
-1. Make a copy of `src/config.example.ts` at `src/config.ts` and fill it out
+1. Update `src/config.ts` if you aren't using docker/kickstart
 2. Run `yarn install` to install dependencies
 3. Run `yarn start` to start your React app at [http://localhost:3000](http://localhost:3000)
 
