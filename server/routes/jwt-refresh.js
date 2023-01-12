@@ -1,6 +1,7 @@
 const express = require('express');
 const request = require('request');
 const config = require('../config.js');
+const cookie = require('../cookie.js');
 
 const router = express.Router();
 
@@ -22,8 +23,11 @@ router.post('/', (req, res) => {
 
             (error, response, body) => {
               if (!body.fieldErrors) {
-                res.cookie('access_token', body.token)
-                res.cookie('refresh_token', body.refreshToken)
+                cookie.setSecure(res, 'access_token', body.token);
+                cookie.setSecure(res, 'refresh_token', body.refreshToken);
+                res.sendStatus(204);
+              } else {
+                res.sendStatus(503);
               }
             }
         );
