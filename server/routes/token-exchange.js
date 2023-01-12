@@ -48,7 +48,7 @@ router.post('/', (req, res) => {
                     if (!error) {
                         res.send({user: JSON.parse(body)});
                     } else {
-                      res.sendStatus(503);
+                      res.sendStatus(500);
                     }
                 }
             );

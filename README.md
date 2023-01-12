@@ -125,7 +125,7 @@ The server you configure to use with the React SDK must have a `/token-exchange`
 and optionally a `/jwt-refresh` endpoint if you wish to use refresh tokens.
 
 You can check out `server/routes/token-exchange.js` and `server/routes/jwt-refresh.js` to see how these endpoints are
-implemented.
+implemented.  (Note: the [Known Issue](https://github.com/FusionAuth/fusionauth-react-sdk#known-issues) of multiple requests made to token-exchange may return 503 responses.  These can be ignored.)
 
 At a high level:
 
