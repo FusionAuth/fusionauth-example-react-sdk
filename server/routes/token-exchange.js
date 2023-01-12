@@ -1,6 +1,7 @@
 const express = require('express');
 const request = require('request');
 const config = require('../config.js');
+const cookie = require('../cookie.js');
 
 const router = express.Router();
 
@@ -26,12 +27,12 @@ router.post('/', (req, res) => {
 
     // callback
     (error, response, body) => {
-        console.log("saving tokens as cookies");
-        // save tokens as cookies
         const { access_token, refresh_token } = JSON.parse(body);
         if (access_token && refresh_token) {
-            setSecureCookie(res, 'access_token', access_token);
-            setSecureCookie(res, 'refresh_token', refresh_token);
+            console.log("saving tokens as cookies");
+            // save tokens as cookies
+            cookie.setSecure(res, 'access_token', access_token);
+            cookie.setSecure(res, 'refresh_token', refresh_token);
 
             // submit request to get user information
             request(
@@ -46,24 +47,19 @@ router.post('/', (req, res) => {
                     console.log("getting userinfo");
                     if (!error) {
                         res.send({user: JSON.parse(body)});
+                    } else {
+                      res.sendStatus(503);
                     }
                 }
             );
         } else {
            console.log("Either refresh token or access token is missing.");
            console.log(body);
+           res.sendStatus(503);
         }
 
     }
   );
 });
-
-const setSecureCookie = (res, name, value) => {
-    res.cookie(name, value, {
-        httpOnly: true,
-        secure: true,
-        sameSite: 'lax'
-    });
-}
 
 module.exports = router;
