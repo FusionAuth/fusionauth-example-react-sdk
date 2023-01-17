@@ -122,14 +122,15 @@ Three files in particular demonstrate the usage of the SDK. Check out the follow
 ### Server Endpoint Requirements
 
 The server you configure to use with the React SDK must have a `/token-exchange` endpoint to perform the exchange,
-and optionally a `/jwt-refresh` endpoint if you wish to use refresh tokens.
+a `/logout` endpoint to clear tokens, and optionally a `/jwt-refresh` endpoint if you wish to use refresh tokens.
 
-You can check out `server/routes/token-exchange.js` and `server/routes/jwt-refresh.js` to see how these endpoints are
+You can check out `server/routes/token-exchange.js`, `server/routes/logout.js`, and `server/routes/jwt-refresh.js` to see how these endpoints are
 implemented.  (Note: the [Known Issue](https://github.com/FusionAuth/fusionauth-react-sdk#known-issues) of multiple requests made to token-exchange may return 503 responses.  These can be ignored.)
 
 At a high level:
 
 - `token-exchange.js` calls out to the [FusionAuth OAuth Token](https://fusionauth.io/docs/v1/tech/oauth/endpoints#token) endpoint to get an access token and refresh token, which are both stored in secure cookies
 - `jwt-refresh.js` calls out to the [FusionAuth JWT Refresh](https://fusionauth.io/docs/v1/tech/apis/jwt#refresh-a-jwt) endpoint to exchange the refresh token for a new access token
+- `logout.js` clears the access token and refresh tokens
 
 See the [SDK Server Code Requirements](https://github.com/FusionAuth/fusionauth-react-sdk#server-code-requirements) for more detail.
