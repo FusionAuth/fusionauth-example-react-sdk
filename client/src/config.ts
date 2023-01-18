@@ -1,4 +1,4 @@
-import { FusionAuthConfig } from 'fusionauth-react-sdk';
+import { FusionAuthConfig } from '@fusionauth/react-sdk';
 
 export const config: FusionAuthConfig = {
     baseUrl: 'http://localhost:9011',                         // The base URL of your FusionAuth instance, e.g., 'https://sandbox.fusionauth.io'
