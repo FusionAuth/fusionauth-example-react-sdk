@@ -1,5 +1,5 @@
 import React, { PropsWithChildren } from 'react';
-import {FusionAuthProvider, RedirectFail, RedirectSuccess} from '@fusionauth/fusionauth-react-sdk';
+import {FusionAuthProvider, RedirectFail, RedirectSuccess} from '@fusionauth/react-sdk';
 import { useNavigate } from 'react-router-dom';
 import { config } from 'config';
 
