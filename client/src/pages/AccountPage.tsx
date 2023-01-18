@@ -1,7 +1,7 @@
 import React, { FC, useEffect } from 'react';
 import styles from 'styles/AccountPage.module.scss';
 import userIcon from 'assets/user_icon.svg';
-import { FusionAuthLogoutButton, useFusionAuth, RequireAuth } from 'fusionauth-react-sdk';
+import { FusionAuthLogoutButton, useFusionAuth, RequireAuth } from '@fusionauth/fusionauth-react-sdk';
 import { useNavigate } from 'react-router-dom';
 
 export const AccountPage: FC = () => {
