@@ -9,6 +9,7 @@ router.get('/', (req, res) => {
   console.log("clearing token cookies");
   cookie.setSecure(res, 'access_token', '', 0);
   cookie.setSecure(res, 'refresh_token', '', 0);
+  cookie.setReadable(res, 'access_token_expires', '', 0);
   res.sendStatus(204);
 });
 

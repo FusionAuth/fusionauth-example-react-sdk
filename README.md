@@ -61,8 +61,8 @@ Go to the Applications section.
 
 1. Give it a name
 2. Make sure the authorization code grant is enabled
-3. Add the following to the authorized redirect URLs for your application: `http://localhost:3000` and `http://localhost`
-4. Add the following to the authorized request origins URLs for your application: `http://localhost:9000` and `http://localhost`
+3. Add the following to the authorized redirect URLs for your application: `http://localhost:3000` and `http://localhost` and localhost:9011 (??)
+4. Add the following to the authorized request origins URLs for your application: `http://localhost:9000` and `http://localhost` and localhost:9011 (??)
 5. Add the following to the logout URL: `http://localhost:3000`
 6. Click save.
 7. Edit the application again. 
