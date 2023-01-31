@@ -2,19 +2,18 @@ const express = require('express');
 const request = require('request');
 const config = require('../config.js');
 const cookie = require('../cookie.js');
+const redirectState = require('../redirectState.js');
 
 const router = express.Router();
 
 router.get('/', (req, res) => {
   console.log("accepting request for token exchange");
   const code = req.query.code;
-  // console.log(`code = ${code}`);
   const codeVerifier = req.cookies.codeVerifier;
-  // console.log(`codeVerifier is ${codeVerifier}`);
-  // console.log(`cookies is ${JSON.stringify(req.cookies)}`);
-  // const redirectUri = config.webAppUrl; // gives error from FA
+  const redirect_uri = `${req.protocol}://${req.get('host')}/app/token-exchange`;
+
   request(
-    // POST request to /token endpoint
+    // POST request to /oauth2/token endpoint
     {
       method: 'POST',
       uri: `${config.fusionAuthBaseUrl}/oauth2/token`,
@@ -24,17 +23,15 @@ router.get('/', (req, res) => {
         'code': code,
         'code_verifier': codeVerifier,
         'grant_type': 'authorization_code',
-        'redirect_uri': config.serverTokenExchangeUrl // TODO required, right??
+        'redirect_uri': redirect_uri,
       },
       headers: {
         'Content-Type': 'application/x-www-form-urlencoded'
       }
     },
 
-    // callback
     (error, response, body) => {
-        console.log(`token-exchange: from /oauth2/token, got back ${body}`);
-        const { access_token, refresh_token, expires_in } = JSON.parse(body);  // TODO wrap try / catch
+        const { access_token, id_token, refresh_token, expires_in } = JSON.parse(body);
         if (access_token && refresh_token) {
             console.log("saving tokens as cookies");
             // save tokens as cookies
@@ -43,8 +40,12 @@ router.get('/', (req, res) => {
 
             const expires_in_ms = expires_in * 1000;
             cookie.setReadable(res, 'access_token_expires', Date.now() + expires_in_ms, expires_in_ms);
+            cookie.setReadable(res, 'codeVerifier', '', 0);
+            cookie.setReadable(res, "id_token", id_token);
 
-            res.redirect(config.webAppUrl);
+            const redirectUrl = redirectState.generateRedirectUrlFromState(req);
+
+            res.redirect(redirectUrl);
 
         } else {
            console.log("Either refresh token or access token is missing.");

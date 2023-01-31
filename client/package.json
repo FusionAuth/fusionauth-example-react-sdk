@@ -1,6 +1,6 @@
 {
   "name": "fusionauth-example-react-with-sdk-client",
-  "version": "0.1.0",
+  "version": "0.24.0",
   "private": true,
   "repository": "git@github.com:FusionAuth/fusionauth-react-sdk-example.git",
   "author": "FusionAuth",
