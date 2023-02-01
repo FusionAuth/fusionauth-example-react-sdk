@@ -8,7 +8,7 @@ export const AccountPage: FC = () => {
     const navigate = useNavigate();
 
     // Pull user/authentication/loading state from FusionAuth context
-    const { user, isAuthenticated, isLoading, refreshToken } = useFusionAuth();
+    const { user, isAuthenticated, isLoading } = useFusionAuth();
 
     useEffect(() => {
         // We are not logged in, redirect

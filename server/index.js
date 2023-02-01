@@ -4,6 +4,7 @@ const cors = require('cors');
 const config = require('./config.js');
 const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser');
+const nocache = require("nocache");
 
 // configure Express app and install the JSON middleware for parsing JSON bodies
 const app = express();
@@ -19,6 +20,8 @@ app.use(cors(
     credentials: true
   })
 );
+
+app.use(nocache());
 
 // configure sessions
 app.use(session(

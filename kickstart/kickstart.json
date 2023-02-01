@@ -54,11 +54,12 @@
               "application": {
                 "name": "Example app",
                 "oauthConfiguration" : {
-                    "authorizedRedirectURLs": ["http://localhost:3000","http://localhost"],
-                    "authorizedOriginURLs": ["http://localhost:9000","http://localhost"],
+                    "authorizedRedirectURLs": ["http://localhost:3000","http://localhost:9000/app/token-exchange"],
+                    "authorizedOriginURLs": ["http://localhost:9000","http://localhost:3000"],
                     "clientSecret": "super-secret-secret-that-should-be-regenerated-for-production",
                     "logoutURL": "http://localhost:3000",
                     "enabledGrants": ["authorization_code","refresh_token"],
+                    "debug": true,
                     "generateRefreshTokens": true
                 },
                 "jwtConfiguration": {
