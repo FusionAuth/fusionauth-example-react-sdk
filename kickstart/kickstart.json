@@ -31,6 +31,26 @@
             }
         },
         {
+            "method": "PATCH",
+            "url": "api/system-configuration",
+            "body": {
+                "systemConfiguration": {
+                    "corsConfiguration": {
+                        "allowCredentials": true,
+                        "allowedMethods": [
+                            "GET",
+                            "POST",
+                            "OPTIONS"
+                        ],
+                        "allowedOrigins": [ "http://localhost:3000" ],
+                        "debug": false,
+                        "enabled": true,
+                        "preflightMaxAgeInSeconds": 0
+                    }
+                }
+            }
+        },
+        {
             "method": "POST",
             "url": "/api/user/registration",
             "body": {

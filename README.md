@@ -57,16 +57,17 @@ Go to the Applications section.
 
 * Create an Application using the green button.
 
+1. Give it a name
+
 * On the OAuth tab:
 
-1. Give it a name
-2. Make sure the authorization code grant is enabled
-3. Add the following to the authorized redirect URLs for your application: `http://localhost:3000` and `http://localhost` and localhost:9011 (??)
-4. Add the following to the authorized request origins URLs for your application: `http://localhost:9000` and `http://localhost` and localhost:9011 (??)
-5. Add the following to the logout URL: `http://localhost:3000`
-6. Click save.
-7. Edit the application again. 
-8. Record the client Id and secret, you'll use that below.
+1. Make sure the authorization code grant is enabled
+2. Add the following to the authorized redirect URLs for your application: `http://localhost:3000` and `http://localhost:9000/app/token-exchange`
+3. Add the following to the authorized request origins URLs for your application: `http://localhost:9000`
+4. Add the following to the logout URL: `http://localhost:3000`
+5. Click save.
+6. Edit the application again. 
+7. Record the client Id and secret, you'll use that below.
 
 * On the registration tab, ensure self service registration is enabled.
 
@@ -88,6 +89,13 @@ Go to the Tenants section.
 1. Edit the default tenant
 2. On the General tab, update the tenant theme to be your new theme; 'React theme' if you used that name.
 3. Save the tenant.
+
+Go to the Settings -> System -> CORS
+
+1. Set enable cors true. 
+2. Set allowed credentials true. 
+3. Set allowed methods GET POST OPTIONS. 
+4. Set allowed origins http://localhost:3000
 
 FusionAuth is all set up. Proceed to the [Express Server Setup](#express-server-setup) section.
 
