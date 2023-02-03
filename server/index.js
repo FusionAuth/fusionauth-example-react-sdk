@@ -4,6 +4,7 @@ const cors = require('cors');
 const config = require('./config.js');
 const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser');
+const nocache = require("nocache");
 
 // configure Express app and install the JSON middleware for parsing JSON bodies
 const app = express();
@@ -19,6 +20,8 @@ app.use(cors(
     credentials: true
   })
 );
+
+app.use(nocache());
 
 // configure sessions
 app.use(session(
@@ -36,9 +39,12 @@ app.use(session(
 );
 
 // use routes
-app.use('/token-exchange', require('./routes/token-exchange.js'));
-app.use('/jwt-refresh', require('./routes/jwt-refresh.js'));
-app.use('/logout', require('./routes/logout.js'));
+app.use('/app/login', require('./routes/login.js'));
+app.use('/app/token-exchange', require('./routes/token-exchange.js'));
+app.use('/app/token-refresh', require('./routes/token-refresh.js'));
+app.use('/app/logout', require('./routes/logout.js'));
+app.use('/app/register', require('./routes/register.js'));
+app.use('/app/me', require('./routes/me.js'));
 
 // start server
 app.listen(config.serverPort, () => console.log(`FusionAuth example react app listening on port ${config.serverPort}.`));

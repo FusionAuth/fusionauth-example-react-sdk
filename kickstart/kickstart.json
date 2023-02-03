@@ -31,6 +31,26 @@
             }
         },
         {
+            "method": "PATCH",
+            "url": "api/system-configuration",
+            "body": {
+                "systemConfiguration": {
+                    "corsConfiguration": {
+                        "allowCredentials": true,
+                        "allowedMethods": [
+                            "GET",
+                            "POST",
+                            "OPTIONS"
+                        ],
+                        "allowedOrigins": [ "http://localhost:3000" ],
+                        "debug": false,
+                        "enabled": true,
+                        "preflightMaxAgeInSeconds": 0
+                    }
+                }
+            }
+        },
+        {
             "method": "POST",
             "url": "/api/user/registration",
             "body": {
@@ -54,11 +74,12 @@
               "application": {
                 "name": "Example app",
                 "oauthConfiguration" : {
-                    "authorizedRedirectURLs": ["http://localhost:3000","http://localhost"],
-                    "authorizedOriginURLs": ["http://localhost:9000","http://localhost"],
+                    "authorizedRedirectURLs": ["http://localhost:3000","http://localhost:9000/app/token-exchange"],
+                    "authorizedOriginURLs": ["http://localhost:9000","http://localhost:3000"],
                     "clientSecret": "super-secret-secret-that-should-be-regenerated-for-production",
                     "logoutURL": "http://localhost:3000",
                     "enabledGrants": ["authorization_code","refresh_token"],
+                    "debug": true,
                     "generateRefreshTokens": true
                 },
                 "jwtConfiguration": {

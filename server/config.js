@@ -4,9 +4,6 @@ module.exports = {
 	clientSecret: 'super-secret-secret-that-should-be-regenerated-for-production',
 	fusionAuthBaseUrl: 'http://localhost:9011',
 
-	// Where FusionAuth will redirect after a login/logout
-	redirectURI: 'http://localhost:3000',
-
-	// port
+	// port this server runs on
 	serverPort: 9000
 };
