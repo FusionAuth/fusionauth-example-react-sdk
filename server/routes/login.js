@@ -16,7 +16,7 @@ router.get('/', async (req, res) => {
   console.log(`newState is ${newState}`);
   const code = await pkce.generatePKCE();
   cookie.setSecure(res, 'codeVerifier', code.code_verifier);
-  const token_exchange_uri = `${req.protocol}://${req.get('host')}/app/token-exchange`;
+  const token_exchange_uri = `${req.protocol}://${req.get('host')}/app/callback`;
   
   const queryParams = {
       client_id: req.query.client_id,

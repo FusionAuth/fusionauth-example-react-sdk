@@ -10,7 +10,7 @@ router.get('/', (req, res) => {
   console.log("accepting request for token exchange");
   const code = req.query.code;
   const codeVerifier = req.cookies.codeVerifier;
-  const redirect_uri = `${req.protocol}://${req.get('host')}/app/token-exchange`;
+  const redirect_uri = `${req.protocol}://${req.get('host')}/app/callback`;
 
   request(
     // POST request to /oauth2/token endpoint
@@ -35,13 +35,13 @@ router.get('/', (req, res) => {
         if (access_token && refresh_token) {
             console.log("saving tokens as cookies");
             // save tokens as cookies
-            cookie.setSecure(res, 'access_token', access_token);
-            cookie.setSecure(res, 'refresh_token', refresh_token);
+            cookie.setSecure(res, 'app.at', access_token);
+            cookie.setSecure(res, 'app.rt', refresh_token);
 
             const expires_in_ms = expires_in * 1000;
-            cookie.setReadable(res, 'access_token_expires', Date.now() + expires_in_ms, expires_in_ms);
+            cookie.setReadable(res, 'app.at_exp', Date.now() + expires_in_ms, expires_in_ms);
             cookie.setReadable(res, 'codeVerifier', '', 0);
-            cookie.setReadable(res, "id_token", id_token);
+            cookie.setReadable(res, "app.idt", id_token);
 
             const redirectUrl = redirectState.generateRedirectUrlFromState(req);
 

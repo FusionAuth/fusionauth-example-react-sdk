@@ -6,12 +6,12 @@ const cookie = require('../cookie.js');
 const router = express.Router();
 
 router.get('/', (req, res) => {
-  const idToken = req.cookies['id_token'];
+  const idToken = req.cookies['app.idt'];
   console.log("clearing token cookies");
-  cookie.setSecure(res, 'access_token', '', 0);
-  cookie.setSecure(res, 'refresh_token', '', 0);
-  cookie.setReadable(res, 'access_token_expires', '', 0);
-  cookie.setReadable(res, 'id_token', '', 0);
+  cookie.setSecure(res, 'app.at', '', 0);
+  cookie.setSecure(res, 'app.rt', '', 0);
+  cookie.setReadable(res, 'app.at_exp', '', 0);
+  cookie.setReadable(res, 'app.idt', '', 0);
 
   const queryParams = {
     post_logout_redirect_uri: req.query.post_logout_redirect_uri,

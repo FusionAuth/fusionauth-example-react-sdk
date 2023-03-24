@@ -16,7 +16,7 @@ router.get('/', async (req, res) => {
   
   const code = await pkce.generatePKCE();
   cookie.setSecure(res, 'codeVerifier', code.code_verifier);
-  const redirect_uri = `${req.protocol}://${req.get('host')}/app/token-exchange`;
+  const redirect_uri = `${req.protocol}://${req.get('host')}/app/callback`;
   const queryParams = {
       client_id: req.query.client_id,
       scope: req.query.scope,
