@@ -1,12 +1,12 @@
 {
   "name": "fusionauth-example-react-with-sdk-client",
-  "version": "0.24.0",
+  "version": "0.25.0",
   "private": true,
   "repository": "git@github.com:FusionAuth/fusionauth-react-sdk-example.git",
   "author": "FusionAuth",
   "license": "Apache",
   "dependencies": {
-    "@fusionauth/react-sdk": "^0.24.0",
+    "@fusionauth/react-sdk": "^0.25.0",
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",

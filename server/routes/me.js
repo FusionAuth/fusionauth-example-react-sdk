@@ -7,7 +7,7 @@ const router = express.Router();
 
 router.get('/', (req, res) => {
   console.log('In /me...');
-  const access_token = req.cookies['access_token'];
+  const access_token = req.cookies['app.at'];
     if (access_token) {
       // submit request to get user information
       request(

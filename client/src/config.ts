@@ -9,7 +9,7 @@ export const config: FusionAuthConfig = {
     // loginPath: '/app/login',
     // logoutPath: '/app/logout',
     // registerPath: '/app/register',
-    // tokenRefreshPath: '/app/token-refresh',
+    // tokenRefreshPath: '/app/refresh',
     // mePath: '/app/me',
 
 };

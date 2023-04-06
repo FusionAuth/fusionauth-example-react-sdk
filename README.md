@@ -62,7 +62,7 @@ Go to the Applications section.
 * On the OAuth tab:
 
 1. Make sure the authorization code grant is enabled
-2. Add the following to the authorized redirect URLs for your application: `http://localhost:3000` and `http://localhost:9000/app/token-exchange`
+2. Add the following to the authorized redirect URLs for your application: `http://localhost:3000` and `http://localhost:9000/app/callback`
 3. Add the following to the authorized request origins URLs for your application: `http://localhost:9000`
 4. Add the following to the logout URL: `http://localhost:3000`
 5. Click save.
