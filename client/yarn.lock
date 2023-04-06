@@ -1205,6 +1205,14 @@
     minimatch "^3.1.2"
     strip-json-comments "^3.1.1"
 
+"@fusionauth/react-sdk@^0.25.0":
+  version "0.25.0"
+  resolved "https://registry.npmjs.org/@fusionauth/react-sdk/-/react-sdk-0.25.0.tgz"
+  integrity sha512-cftLV41O55PA/6FP4afqPtTwleGXKp/7mdClQGgKNL7sdshdW3VxuFeKKmdC/QXEnPB2taUUN8qgv79ZFtVizg==
+  dependencies:
+    classnames "^2.3.2"
+    js-cookie "^3.0.1"
+
 "@humanwhocodes/config-array@^0.11.6":
   version "0.11.7"
   resolved "https://registry.npmjs.org/@humanwhocodes/config-array/-/config-array-0.11.7.tgz"
@@ -3104,6 +3112,11 @@ cjs-module-lexer@^1.0.0:
   version "1.2.2"
   resolved "https://registry.npmjs.org/cjs-module-lexer/-/cjs-module-lexer-1.2.2.tgz"
   integrity sha512-cOU9usZw8/dXIXKtwa8pM0OTJQuJkxMN6w30csNRUerHfeQ5R6U3kkU/FtJeIf3M202OHfY2U8ccInBG7/xogA==
+
+classnames@^2.3.2:
+  version "2.3.2"
+  resolved "https://registry.npmjs.org/classnames/-/classnames-2.3.2.tgz"
+  integrity sha512-CSbhY4cFEJRe6/GQzIk5qXZ4Jeg5pcsP7b5peFSDpffpe1cqjASH/n9UTjBwOp6XpMSTwQ8Za2K5V02ueA7Tmw==
 
 clean-css@^5.2.2:
   version "5.3.1"
