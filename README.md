@@ -2,7 +2,7 @@
 
 This repository contains example usage of the [FusionAuth React SDK](https://github.com/FusionAuth/fusionauth-react-sdk). It provides an example React client that uses the SDK, and an example Express server that is used to complete the OAuth token exchange.
 
-If you'd rather use a hosted backend, with no need to use the Express server, please visit [our React sample application with the hosted backend](https://github.com/fusionauth/fusionauth-example-react-guide) repo.
+If you'd rather use a [hosted backend](https://fusionauth.io/docs/v1/tech/core-concepts/integration-points#hosted-backend), with no need to use the Express server, please visit [our React sample application with the hosted backend](https://github.com/fusionauth/fusionauth-example-react-guide) repo.
 
 ## Overview
 
