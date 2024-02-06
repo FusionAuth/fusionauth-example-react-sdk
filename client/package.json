@@ -5,20 +5,23 @@
   "repository": "git@github.com:FusionAuth/fusionauth-react-sdk-example.git",
   "author": "FusionAuth",
   "license": "Apache",
+  "engines": {
+    "node": ">=18.0.0"
+  },
   "dependencies": {
-    "@fusionauth/react-sdk": "^0.25.0",
-    "@testing-library/jest-dom": "^5.16.5",
-    "@testing-library/react": "^13.4.0",
-    "@testing-library/user-event": "^13.5.0",
-    "axios": "^1.2.0",
-    "husky": "^8.0.2",
-    "js-cookie": "^3.0.1",
+    "@fusionauth/react-sdk": "^1.0.0",
+    "@testing-library/jest-dom": "^6.4.2",
+    "@testing-library/react": "^14.2.1",
+    "@testing-library/user-event": "^14.5.2",
+    "axios": "^1.6.7",
+    "husky": "^9.0.10",
+    "js-cookie": "^3.0.5",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "react-router-dom": "^6.4.3",
+    "react-router-dom": "^6.22.0",
     "react-scripts": "5.0.1",
-    "sass": "^1.56.1",
-    "typescript": "^4.8.4"
+    "sass": "^1.70.0",
+    "typescript": "^5.3.3"
   },
   "types": "dist/index.d.ts",
   "scripts": {
