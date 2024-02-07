@@ -6,7 +6,7 @@ const router = express.Router();
 router.get('/', async (req, res) => {
   console.log('In /me...');
   const access_token = req.cookies['app.at'];
-  
+
   if (!access_token) {
     console.log('Access token missing')
     res.sendStatus(401);

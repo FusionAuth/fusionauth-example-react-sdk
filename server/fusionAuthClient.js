@@ -4,12 +4,14 @@ const fusionAuthClient = async (endpoint, options) => {
   try {
     const url = config.fusionAuthBaseUrl + endpoint
     const rawResponse = await fetch(url, options)
-    let parsedResponse = await parseResponse(rawResponse)
-    
+
     if (!rawResponse.ok) {
-      throw parsedResponse
+      throw new Error({
+        message: await rawResponse.text()
+      })
     }
-    
+
+    const parsedResponse = await parseResponse(rawResponse)
     return parsedResponse
   } catch (error) {
     throw error

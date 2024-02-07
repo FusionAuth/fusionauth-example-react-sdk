@@ -32,7 +32,6 @@ router.get('/', async (req, res) => {
     const { access_token, id_token, refresh_token, expires_in } = fusionAuthResponse;
     if (!(access_token && refresh_token)) {
       console.log("Either refresh token or access token is missing.");
-      console.log(body);
       res.sendStatus(503)
       return
     }
