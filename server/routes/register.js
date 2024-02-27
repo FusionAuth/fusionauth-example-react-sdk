@@ -1,6 +1,4 @@
 const express = require('express');
-const request = require('request');
-const crypto = require('crypto').webcrypto;
 const config = require('../config.js');
 const cookie = require('../cookie.js');
 const pkce = require('../pkce.js');
@@ -24,7 +22,6 @@ router.get('/', async (req, res) => {
       redirect_uri: redirect_uri,
       code_challenge: code.code_challenge,
       code_challenge_method: 'S256',
-      scope: 'openid offline_access',
       state: newState,
   };
   const fullUrl = generateUrl(queryParams);
