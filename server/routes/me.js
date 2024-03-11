@@ -1,35 +1,31 @@
 const express = require('express');
-const request = require('request');
-const config = require('../config.js');
-const cookie = require('../cookie.js');
+const { fusionAuthClient } = require('../fusionAuthClient.js')
 
 const router = express.Router();
 
-router.get('/', (req, res) => {
+router.get('/', async (req, res) => {
   console.log('In /me...');
   const access_token = req.cookies['app.at'];
-    if (access_token) {
-      // submit request to get user information
-      request(
-        {
-            method: 'GET',
-            uri: `${config.fusionAuthBaseUrl}/oauth2/userinfo`,
-            headers: {
-                'Authorization': 'Bearer ' + access_token
-            }
-        },
-        (error, response, body) => {
-            console.log("getting userinfo");
-            if (!error) {
-                res.send(body);
-            } else {
-              res.sendStatus(500);
-            }
-        }
-      );
-    } else {
-      res.sendStatus(400);
-    }
+
+  if (!access_token) {
+    console.log('Access token missing')
+    res.sendStatus(401);
+    return
+  }
+
+  try {
+    // submit request to get user information
+    const user = await fusionAuthClient('/oauth2/userinfo', {
+      method: 'GET',
+      headers: {
+        'Authorization': 'Bearer ' + access_token
+      }
+    })
+
+    res.status(200).send(user)
+  } catch (error) {
+    res.status(500).send(error)
+  }
 });
 
 module.exports = router;
