@@ -1,3 +1,5 @@
+**This repo is out of date and is archived. Check out [an updated tutorial on using React and the FusionAuth React SDK](https://github.com/FusionAuth/fusionauth-quickstart-javascript-react-web) or [an example server implementation for FusionAuth Web SDKs](https://github.com/FusionAuth/fusionauth-javascript-sdk-express).**
+
 # Example: Using React and the FusionAuth React SDK
 
 This repository contains example usage of the [FusionAuth React SDK](https://github.com/FusionAuth/fusionauth-react-sdk). It provides an example React client that uses the SDK, and an example Express server that is used to complete the OAuth token exchange.
